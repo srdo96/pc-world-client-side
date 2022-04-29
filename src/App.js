@@ -4,6 +4,7 @@ import Header from "./Page/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Page/Home/Home/Home";
 import NotFound from "./Page/Shared/NotFound/NotFound";
+import { Footer } from "./Page/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
