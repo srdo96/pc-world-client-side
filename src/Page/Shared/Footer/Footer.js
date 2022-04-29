@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Go home"
-            title="Company"
             className="inline-flex items-center"
           >
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
               Pc World
             </span>
-          </a>
+          </Link>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-gray-800">
               Pc World is a computer shop. Here you can find all kind of pc
@@ -26,19 +27,17 @@ export const Footer = () => {
           </p>
           <div className="flex">
             <p className="mr-1 text-gray-800">Phone:</p>
-            <a
-              href="tel:850-123-5021"
-              aria-label="Our phone"
+            <span
               title="Our phone"
               className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               09678882313
-            </a>
+            </span>
           </div>
           <div className="flex">
             <p className="mr-1 text-gray-800">Email:</p>
             <a
-              href="mailto:info@lorem.mail"
+              href="mailto:info@pcworld.com"
               aria-label="Our email"
               title="Our email"
               className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
@@ -47,7 +46,10 @@ export const Footer = () => {
             </a>
           </div>
           <div className="flex">
-            <p className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
+            <p
+              className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              title="address"
+            >
               2th floor, 28 Kazi Nazrul Islam Ave,
               <br /> Dhaka 1000
             </p>
@@ -96,28 +98,28 @@ export const Footer = () => {
         </p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               F.A.Q
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
               Terms &amp; Conditions
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
