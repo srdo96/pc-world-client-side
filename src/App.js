@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Page/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Page/Home/Home/Home";
+import NotFound from "./Page/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>
   );
