@@ -1,9 +1,10 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Link as p, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import loginCover from "../../../img/cover/loginCover.jpg";
 import Loading from "../../Shared/Loading/Loading";
+import ResetPass from "../ResetPass/ResetPass";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -109,8 +110,8 @@ const SignIn = () => {
                   <div className="flex items-center mb-6 -mt-4">
                     <div className="flex ml-auto">
                       <Link
+                        to="/resetpass"
                         className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                        to="/signup"
                       >
                         Forgot Password?
                       </Link>
@@ -128,12 +129,12 @@ const SignIn = () => {
               </div>
               <div className="flex items-center justify-center mt-6">
                 <div className="pt-2 pb-12 text-center">
-                  <Link
+                  <p
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                     to="/signup"
                   >
                     <p>Don&#x27;t have an account? Sign up here.</p>
-                  </Link>
+                  </p>
                 </div>
               </div>
             </div>
