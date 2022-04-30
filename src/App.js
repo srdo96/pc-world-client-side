@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./Page/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Page/Home/Home/Home";
 import NotFound from "./Page/Shared/NotFound/NotFound";
 import { Footer } from "./Page/Shared/Footer/Footer";
+import Home from "./Page/Home/Home/Home";
 
 function App() {
   return (
