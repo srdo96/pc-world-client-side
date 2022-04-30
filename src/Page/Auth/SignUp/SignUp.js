@@ -143,7 +143,7 @@ const SignUp = () => {
                   <div className="text-center">
                     <Link
                       className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                      to="/login"
+                      to="/signin"
                     >
                       Already have an account? Sign in.
                     </Link>

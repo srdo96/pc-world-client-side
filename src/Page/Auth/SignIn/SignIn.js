@@ -110,7 +110,7 @@ const SignIn = () => {
                 <div className="pt-2 pb-12 text-center">
                   <Link
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    to="/sighup"
+                    to="/signup"
                   >
                     <p>Don&#x27;t have an account? Sign up here.</p>
                   </Link>
