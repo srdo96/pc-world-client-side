@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import signupCover from "../../../img/cover/signupCover.jpg";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [passError, setPassError] = useState("");
+
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-  const navigate = useNavigate();
 
-  if (googleUser) {
+  const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleSignupWithEmail = (e) => {
+    e.preventDefault();
+    const firstName = e.target.firstName.value;
+    const lastName = e.target.lastName.value;
+    const email = e.target.email.value;
+    const pass = e.target.pass.value;
+    const confirmPass = e.target.confirmPass.value;
+    if (pass === confirmPass) {
+      createUserWithEmailAndPassword(email, pass);
+      setPassError("");
+      e.target.reset();
+    } else {
+      setPassError("The password and confirmation password did not match.");
+    }
+  };
+
+  if (googleUser || emailUser) {
     navigate("/");
   }
 
@@ -68,7 +92,10 @@ const SignUp = () => {
                 </label>
                 <hr className="border-gray-300 border-1 w-full rounded-md" />
               </div>
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <form
+                onSubmit={handleSignupWithEmail}
+                className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+              >
                 <div className="mb-4 md:flex md:justify-between">
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label
@@ -116,47 +143,62 @@ const SignUp = () => {
                     required
                   />
                 </div>
-                <div className="md:flex md:justify-between">
-                  <div className="mb-4 md:mr-2 md:mb-0">
-                    <label
-                      className="block mb-2 text-sm font-bold text-gray-700"
-                      htmlFor="password"
-                    >
-                      Password
-                    </label>
-                    <input
-                      className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                      id="pass"
-                      type="password"
-                      placeholder="******************"
-                      required
-                    />
+                {
+                  <div className="md:flex md:justify-between">
+                    <div className="mb-4 md:mr-2 md:mb-0">
+                      <label
+                        className={`block mb-2 text-sm font-bold ${
+                          passError ? "text-red-500" : "text-gray-700"
+                        }`}
+                        htmlFor="password"
+                      >
+                        Password
+                      </label>
+                      <input
+                        className={`w-full px-3 py-2 mb-3 text-sm leading-tight ${
+                          passError && "bg-red-200"
+                        } text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
+                        id="pass"
+                        type="password"
+                        placeholder="******************"
+                        required
+                      />
+                    </div>
+                    <div className="md:ml-2">
+                      <label
+                        className={`block mb-2 text-sm font-bold ${
+                          passError ? "text-red-500" : "text-gray-700"
+                        }`}
+                        htmlFor="c_password"
+                      >
+                        Confirm Password
+                      </label>
+                      <input
+                        className={`w-full px-3 py-2 mb-3 text-sm leading-tight ${
+                          passError && "bg-red-200"
+                        }  text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
+                        id="confirmPass"
+                        type="password"
+                        placeholder="******************"
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="md:ml-2">
-                    <label
-                      className="block mb-2 text-sm font-bold text-gray-700"
-                      htmlFor="c_password"
-                    >
-                      Confirm Password
-                    </label>
-                    <input
-                      className="w-full px-3 py-2 mb-3 text-sm leading-tight  text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                      id="confirmPass"
-                      type="password"
-                      placeholder="******************"
-                      required
-                    />
-                  </div>
-                </div>
-
+                }
+                <p className="text-red-600 text-center mt-2">{passError}</p>
                 <div className="mb-6 text-center">
                   <button
                     className="w-full mt-2 px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                     type="submit"
                   >
-                    <p>Signup Account</p>
+                    {emailLoading ? <Loading /> : <p>Signup Account</p>}
                   </button>
                 </div>
+                {emailError && (
+                  <p className="text-red-500 text-center">
+                    {emailError.message}
+                  </p>
+                )}
 
                 <hr className="mb-6 border-t" />
 
