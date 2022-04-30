@@ -134,7 +134,7 @@ const SignUp = () => {
                       className="w-full mt-2 px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                       type="submit"
                     >
-                      <p>Register Account</p>
+                      <p>Signup Account</p>
                     </button>
                   </div>
 
@@ -145,7 +145,7 @@ const SignUp = () => {
                       className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                       to="/login"
                     >
-                      Already have an account? Login!
+                      Already have an account? Sign in.
                     </Link>
                   </div>
                 </form>
