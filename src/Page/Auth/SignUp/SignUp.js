@@ -50,6 +50,11 @@ const SignUp = () => {
                   </svg>
                 </button>
               </div>
+              {googleError && (
+                <p className="text-red-500 text-center mt-4">
+                  {googleError.message}
+                </p>
+              )}
 
               <div className="flex mt-7 items-center text-center">
                 <hr className="border-gray-300 border-1 w-full rounded-md" />
