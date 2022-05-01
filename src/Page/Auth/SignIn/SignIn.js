@@ -6,7 +6,7 @@ import {
 import { Link, Link as p, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import loginCover from "../../../img/cover/loginCover.jpg";
-import Loading from "../../Shared/Loading/Loading";
+import Loading from "../../Shared/Spinner/Spinner";
 
 const SignIn = () => {
   const navigate = useNavigate();

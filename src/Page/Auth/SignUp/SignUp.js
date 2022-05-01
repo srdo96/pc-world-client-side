@@ -6,7 +6,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import Loading from "../../Shared/Loading/Loading";
+import Loading from "../../Shared/Spinner/Spinner";
 
 const SignUp = () => {
   const navigate = useNavigate();
