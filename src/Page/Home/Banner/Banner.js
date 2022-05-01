@@ -2,7 +2,7 @@ import React from "react";
 import banner from "../../../img/cover/banner2.jpg";
 const Banner = () => {
   return (
-    <div className="relative ">
+    <div id="home" className="relative ">
       <img className="rounded shadow-xl" src={banner} alt="" />
 
       <div

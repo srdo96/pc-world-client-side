@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Card from "../Card/Card";
 const Items = () => {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
 
   const fetchItems = async () => {
     fetch("http://localhost:5000/items")
@@ -13,8 +14,13 @@ const Items = () => {
   }, []);
 
   return (
-    <div id="items" className="text-center mt-10">
-      <h1 className="text-3xl h-screen">All Items {data.length} </h1>
+    <div id="items" className=" mt-10">
+      <h1 className="text-3xl text-center ">All Items {data.length} </h1>
+      <div className="grid grid-cols-3 gap-y-10">
+        {data.map((item) => (
+          <Card key={item._id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

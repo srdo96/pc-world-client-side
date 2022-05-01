@@ -22,17 +22,18 @@ const Header = () => {
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
-                <Link
-                  to="/"
+                <HashLink
+                  to="/#home"
+                  smooth
                   aria-label="Home"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
                   Home
-                </Link>
+                </HashLink>
               </li>
               <li>
                 <HashLink
-                  to="#items"
+                  to="/#items"
                   smooth
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
