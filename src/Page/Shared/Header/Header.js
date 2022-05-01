@@ -55,37 +55,40 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            {user ? (
-              <button
-                onClick={() => signOut(auth)}
-                className="text-white font-medium tracking-wide "
-              >
-                Sign out
-              </button>
-            ) : (
-              <ul className="flex items-center hidden space-x-8 lg:flex">
-                <li>
-                  <Link
-                    to="/signup"
-                    className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign up"
-                    title="Sign up"
-                  >
-                    Sign up
-                  </Link>
+
+            <ul className="flex items-center hidden space-x-8 lg:flex">
+              {user ? (
+                <li onClick={() => signOut(auth)}>
+                  <button className="text-white font-medium tracking-wide ">
+                    Sign out
+                  </button>
                 </li>
-                <li>
-                  <Link
-                    to="/signin"
-                    className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign in"
-                    title="Sign in"
-                  >
-                    Sign in
-                  </Link>
+              ) : (
+                <li className="flex ">
+                  <li className="mr-4">
+                    <Link
+                      to="/signup"
+                      className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign up"
+                      title="Sign up"
+                    >
+                      Sign up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signin"
+                      className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign in"
+                      title="Sign in"
+                    >
+                      Sign in
+                    </Link>
+                  </li>
                 </li>
-              </ul>
-            )}
+              )}
+            </ul>
+
             <div className="lg:hidden">
               <button
                 aria-label="Open Menu"
