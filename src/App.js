@@ -9,6 +9,7 @@ import SignIn from "./Page/Auth/SignIn/SignIn";
 import ResetPass from "./Page/Auth/ResetPass/ResetPass";
 import Items from "./Page/Home/Items/Items";
 import Inventory from "./Page/Home/Inventory/Inventory";
+import RequireAuth from "./Page/Auth/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -21,7 +22,14 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpass" element={<ResetPass />} />
-        <Route path="/inventory/:id" element={<Inventory />} />
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequireAuth>
+              <Inventory />
+            </RequireAuth>
+          }
+        />
         {/* Not Found Route */}
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

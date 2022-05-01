@@ -3,14 +3,14 @@ import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Link, Link as p, useNavigate } from "react-router-dom";
+import { Link, Link as p, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import loginCover from "../../../img/cover/loginCover.jpg";
 import Loading from "../../Shared/Loading/Loading";
-import ResetPass from "../ResetPass/ResetPass";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
@@ -23,8 +23,10 @@ const SignIn = () => {
     signInWithEmailAndPassword(email, pass);
   };
 
+  let from = location.state?.from?.pathname || "/";
+
   if (googleUser || emailUser) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
   return (
     <div>
