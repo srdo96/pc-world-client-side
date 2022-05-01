@@ -13,8 +13,8 @@ const Items = () => {
   }, []);
 
   return (
-    <div className="text-center mt-10">
-      <h1 className="text-3xl">All Items </h1>
+    <div id="items" className="text-center mt-10">
+      <h1 className="text-3xl h-screen">All Items {data.length} </h1>
     </div>
   );
 };
