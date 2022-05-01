@@ -1,8 +1,12 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import auth from "../../../firebase.init";
 
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -51,28 +55,37 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            <ul className="flex items-center hidden space-x-8 lg:flex">
-              <li>
-                <Link
-                  to="/signup"
-                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                  aria-label="Sign up"
-                  title="Sign up"
-                >
-                  Sign up
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/signin"
-                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                  aria-label="Sign in"
-                  title="Sign in"
-                >
-                  Sign in
-                </Link>
-              </li>
-            </ul>
+            {user ? (
+              <button
+                onClick={() => signOut(auth)}
+                className="text-white font-medium tracking-wide "
+              >
+                Sign out
+              </button>
+            ) : (
+              <ul className="flex items-center hidden space-x-8 lg:flex">
+                <li>
+                  <Link
+                    to="/signup"
+                    className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign up"
+                    title="Sign up"
+                  >
+                    Sign up
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signin"
+                    className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign in"
+                    title="Sign in"
+                  >
+                    Sign in
+                  </Link>
+                </li>
+              </ul>
+            )}
             <div className="lg:hidden">
               <button
                 aria-label="Open Menu"
@@ -133,55 +146,66 @@ const Header = () => {
                     <nav>
                       <ul className="space-y-4">
                         <li>
-                          <Link
-                            to="/"
-                            aria-label="Home"
-                            title="Home"
+                          <HashLink
+                            to="/#home"
+                            smooth
+                            onClick={() => setIsMenuOpen(false)}
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Home
-                          </Link>
+                          </HashLink>
                         </li>
                         <li>
-                          <a
-                            href="/"
-                            aria-label="Items"
-                            title="Items"
+                          <HashLink
+                            to="/#items"
+                            smooth
+                            onClick={() => setIsMenuOpen(false)}
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Items
-                          </a>
+                          </HashLink>
                         </li>
                         <li>
                           <a
                             href="/"
+                            onClick={() => setIsMenuOpen(false)}
                             aria-label="Blogs"
-                            title="Blogs"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Blogs
                           </a>
                         </li>
-                        <li>
-                          <Link
-                            to="/signup"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                          >
-                            Sign up
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/signin"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+
+                        {user ? (
+                          <button
+                            onClick={() => signOut(auth)}
+                            className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-red-500 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
                             aria-label="Sign in"
-                            title="Sign in"
                           >
-                            Sign in
-                          </Link>
-                        </li>
+                            Sign out
+                          </button>
+                        ) : (
+                          <li>
+                            <li>
+                              <Link
+                                to="/signup"
+                                className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200"
+                                aria-label="Sign up"
+                              >
+                                Sign up
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                to="/signin"
+                                className="inline-flex items-center justify-center w-full h-12 mt-3 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
+                                aria-label="Sign in"
+                              >
+                                Sign in
+                              </Link>
+                            </li>
+                          </li>
+                        )}
                       </ul>
                     </nav>
                   </div>
