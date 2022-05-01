@@ -1,5 +1,8 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, Link as p, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import loginCover from "../../../img/cover/loginCover.jpg";
@@ -11,7 +14,16 @@ const SignIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
-  if (googleUser) {
+  const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useSignInWithEmailAndPassword(auth);
+  const handleEmailSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const pass = e.target.pass.value;
+    signInWithEmailAndPassword(email, pass);
+  };
+
+  if (googleUser || emailUser) {
     navigate("/");
   }
   return (
@@ -62,7 +74,7 @@ const SignIn = () => {
                 <hr className="border-gray-300 border-1 w-full rounded-md" />
               </div>
               <div className="mt-8">
-                <form>
+                <form onSubmit={handleEmailSignIn}>
                   <div className="flex flex-col mb-2">
                     <div className="flex relative ">
                       <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -117,24 +129,31 @@ const SignIn = () => {
                       </Link>
                     </div>
                   </div>
+
+                  {emailError && (
+                    <p className="text-red-500 text-center">
+                      {emailError.message}
+                    </p>
+                  )}
+
                   <div className="flex w-full">
                     <button
                       type="submit"
-                      className="py-2 mt-5 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                      className="py-2 mt-4 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                     >
-                      Sign in
+                      {emailLoading ? <Loading /> : "Sign in"}
                     </button>
                   </div>
                 </form>
               </div>
               <div className="flex items-center justify-center mt-6">
                 <div className="pt-2 pb-12 text-center">
-                  <p
+                  <Link
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                     to="/signup"
                   >
                     <p>Don&#x27;t have an account? Sign up here.</p>
-                  </p>
+                  </Link>
                 </div>
               </div>
             </div>

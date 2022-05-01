@@ -3,15 +3,15 @@ import React from "react";
 const ResetPass = () => {
   return (
     <div className="grid place-items-center mt-10">
-      <div class="w-full max-w-md px-4 py-8  bg-white rounded-lg shadow sm:px-6 md:px-8 lg:px-10">
-        <div class=" mb-6 text-xl text-center font-light text-gray-600 sm:text-2xl ">
+      <div className="w-full max-w-md px-4 py-8  bg-white rounded-lg shadow sm:px-6 md:px-8 lg:px-10">
+        <div className=" mb-6 text-xl text-center font-light text-gray-600 sm:text-2xl ">
           Account recovery
         </div>
-        <div class="mt-8">
+        <div className="mt-8">
           <form autoComplete="off">
-            <div class="flex flex-col mb-2">
-              <div class="flex relative ">
-                <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+            <div className="flex flex-col mb-2">
+              <div className="flex relative ">
+                <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                   <svg
                     width="15"
                     height="15"
@@ -25,17 +25,17 @@ const ResetPass = () => {
                 <input
                   type="text"
                   id="sign-in-email"
-                  class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="Your email"
                 />
               </div>
             </div>
-            <div class="flex w-full">
+            <div className="flex w-full">
               <button
                 type="submit"
-                class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                className="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
-                Send Email
+                Send Recovery Email
               </button>
             </div>
           </form>
