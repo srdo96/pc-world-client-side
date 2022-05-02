@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useItemsDetails from "../../../hooks/useItemsDetails";
 
@@ -28,17 +27,33 @@ const Inventory = () => {
         {/* Details */}
         <div className="mt-4 lg:mt-0 lg:row-span-3">
           {/* <h2 className="sr-only">Product information</h2> */}
-          <p className="text-3xl text-gray-900">Price: {item.price} BDT</p>
-          <p className="text-3xl text-gray-900">Quantity: {item.quantity}</p>
-          <p className="text-3xl text-gray-900">Sold: {item.sold}</p>
-          <p className="text-3xl text-gray-900">Supplier {item.supplier}</p>
+          <p className="text-2xl text-gray-900">Price: {item.price} BDT</p>
+          <p className="text-2xl text-gray-900">Quantity: {item.quantity}</p>
+          <p className="text-2xl text-gray-900">Sold: {item.sold}</p>
+          <p className="text-2xl text-gray-900">Supplier {item.supplier}</p>
 
-          <form className="mt-10">
+          <button
+            type="submit"
+            className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Delivered
+          </button>
+
+          <form className="mt-4 border-t-2 border-gray-200">
+            <h1 className="text-2xl mt-3 ">Restock the item</h1>
+            <div class=" relative ">
+              <input
+                type="number"
+                id="qty"
+                class="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                placeholder="Quantity"
+              />
+            </div>
             <button
               type="submit"
-              className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="uppercase mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Delivered
+              Stock
             </button>
           </form>
         </div>
