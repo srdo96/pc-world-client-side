@@ -45,14 +45,14 @@ const Header = () => {
                 </HashLink>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/blogs"
                   aria-label="Blogs"
                   title="Blogs"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
                   Blogs
-                </a>
+                </Link>
               </li>
             </ul>
 

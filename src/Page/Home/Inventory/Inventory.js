@@ -1,10 +1,57 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useItemsDetails from "../../../hooks/useItemsDetails";
 
 const Inventory = () => {
   const { id } = useParams();
-  const item = useItemsDetails(id);
-  console.log(id);
+  const [item, setItem] = useState({});
+  const [itemQty, setItemQty] = useState(0);
+  const [updateItemQty, setUpdateItemQty] = useState({ quantity: 11 });
+  const url = `http://localhost:5000/item/${id}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setItem(data);
+        setItemQty(data.quantity);
+      });
+  }, []);
+  // console.log("log item", itemQty);
+  const handleDelivered = () => {
+    // console.log("item.qunti:", itemQty);
+    if (itemQty > 0) {
+      // setItemQty(item.quantity - 1);
+      const newQty = itemQty - 1;
+      setItemQty(newQty);
+      // const newQty = itemQty - 1;
+      // setItemQty(newQty);
+      const updateInfo = { quantity: newQty };
+      // console.log(typeof qty, qty);
+      console.log("Update-info", updateInfo, "&", updateInfo.quantity);
+      setUpdateItemQty(updateInfo);
+      console.log("Update-Qty", updateItemQty, "&", updateItemQty.quantity);
+      console.log("updateQ", updateItemQty);
+      // const url = `http://localhost:5000/data/${id}`;
+      // console.log(updateItemQty);
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateItemQty),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  };
+
   return (
     <div className="pt-6">
       <div className=" mx-auto sm:px-6 lg:max-w-7xl lg:px-6 md:px-6 sm:rounded-lg lg:aspect-w-3 ">
@@ -28,30 +75,30 @@ const Inventory = () => {
         <div className="mt-4 lg:mt-0 lg:row-span-3">
           {/* <h2 className="sr-only">Product information</h2> */}
           <p className="text-2xl text-gray-900">Price: {item.price} BDT</p>
-          <p className="text-2xl text-gray-900">Quantity: {item.quantity}</p>
+          <p className="text-2xl text-gray-900">Quantity: {itemQty}</p>
           <p className="text-2xl text-gray-900">Sold: {item.sold}</p>
           <p className="text-2xl text-gray-900">Supplier {item.supplier}</p>
 
           <button
-            type="submit"
-            className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={handleDelivered}
+            className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Delivered
           </button>
 
           <form className="mt-4 border-t-2 border-gray-200">
-            <h1 className="text-2xl mt-3 ">Restock the item</h1>
-            <div class=" relative ">
+            <h1 className="text-2xl mt-3 ">Restock the data</h1>
+            <div className=" relative ">
               <input
                 type="number"
                 id="qty"
-                class="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 placeholder="Quantity"
               />
             </div>
             <button
               type="submit"
-              className="uppercase mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="uppercase mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Stock
             </button>

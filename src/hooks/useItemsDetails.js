@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 
 const useItemsDetails = (id) => {
   const [item, setItem] = useState({});
-  const x = `http://localhost:5000/item/${id}`;
-  console.log("X", x);
+  const url = `http://localhost:5000/item/${id}`;
   useEffect(() => {
-    const url = `http://localhost:5000/item/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
   }, []);
+  // console.log(updateItem);
   return item;
 };
 
