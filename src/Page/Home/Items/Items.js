@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useGetAllItems from "../../../hooks/useGetAllItems";
 import Card from "../Card/Card";
 const Items = () => {
-  const data = useGetAllItems([]);
+  const [data] = useGetAllItems([]);
 
   return (
     <div id="items" className=" mt-10">
