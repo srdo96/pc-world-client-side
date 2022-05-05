@@ -8,24 +8,28 @@ const ManageInventories = () => {
 
   const handleDeleteItem = (id) => {
     const url = `http://localhost:5000/item/${id}`;
+    const confirmation = window.confirm(
+      "Are you sure, you want to delete this?"
+    );
 
-    fetch(url, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((resData) => {
-        // console.log(item._id);
-        const newData = data.filter((item) => item._id !== id);
-        setData(newData);
-        toast.success("Remove item successful");
-      });
+    if (confirmation) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((resData) => {
+          const newData = data.filter((item) => item._id !== id);
+          setData(newData);
+          toast.success("Remove item successful");
+        });
+    }
   };
   return (
     <div>
-      <div className="flex justify-end mt-14 mb-5 mr-5 ">
+      <div className="flex justify-end mt-14 mb-5 mr-9 ">
         <button
           type="button"
-          className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+          className="py-2 px-4   bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
         >
           Add New Item
         </button>

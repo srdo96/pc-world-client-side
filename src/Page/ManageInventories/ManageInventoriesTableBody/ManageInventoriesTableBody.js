@@ -13,7 +13,7 @@ const ManageInventoriesTableRow = ({ item, index, handleDeleteItem }) => {
         {item?.name}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-        {item?.price}
+        $ {item?.price}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         {item?.quantity}
