@@ -1,11 +1,9 @@
 import React from "react";
+import useGetAllItems from "../../hooks/useGetAllItems";
 
 const ManageInventories = () => {
-  return (
-    <div>
-      <h1>This is Manage Inventories</h1>
-    </div>
-  );
+  const data = useGetAllItems([]);
+  return <div></div>;
 };
 
 export default ManageInventories;

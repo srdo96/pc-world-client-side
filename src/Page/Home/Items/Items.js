@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useGetAllItems from "../../../hooks/useGetAllItems";
 import Card from "../Card/Card";
 const Items = () => {
-  const [data, setData] = useState([]);
-
-  const fetchItems = async () => {
-    fetch("http://localhost:5000/items")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  };
-
-  useEffect(() => {
-    fetchItems();
-  }, []);
+  const data = useGetAllItems([]);
 
   return (
     <div id="items" className=" mt-10">
