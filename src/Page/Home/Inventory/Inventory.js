@@ -42,7 +42,23 @@ const Inventory = () => {
   const handleStock = (e) => {
     e.preventDefault();
     const stockNum = e.target.stockQty.value;
-    console.log(stockNum);
+    const newStockNum = itemQty + parseInt(stockNum);
+    e.target.reset();
+
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ quantity: newStockNum }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setItemQty(newStockNum);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
