@@ -16,6 +16,7 @@ const SignIn = () => {
 
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
+
   const handleEmailSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;

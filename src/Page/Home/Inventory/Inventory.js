@@ -39,6 +39,11 @@ const Inventory = () => {
       setError("Stock Empty!!");
     }
   };
+  const handleStock = (e) => {
+    e.preventDefault();
+    const stockNum = e.target.stockQty.value;
+    console.log(stockNum);
+  };
 
   return (
     <div className="pt-6">
@@ -74,12 +79,16 @@ const Inventory = () => {
             Delivered
           </button>
 
-          <form className="mt-4 border-t-2 border-gray-200">
-            <h1 className="text-2xl mt-3 ">Restock the data</h1>
+          <form
+            onSubmit={handleStock}
+            className="mt-4 border-t-2 border-gray-200"
+          >
+            <h1 className="text-2xl mt-3 ">Restock {item.name}.</h1>
             <div className=" relative ">
               <input
                 type="number"
-                id="qty"
+                id="stockQty"
+                required
                 className="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 placeholder="Quantity"
               />
