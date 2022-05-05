@@ -13,7 +13,7 @@ const Items = () => {
           <Card key={item._id} item={item} />
         ))}
       </div>
-      {/* <Link to=""></Link> */}
+
       <Link
         to="/manageInventories"
         type="submit"

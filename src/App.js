@@ -13,6 +13,7 @@ import RequireAuth from "./Page/Auth/RequireAuth/RequireAuth";
 import Blogs from "./Page/Blogs/Blogs";
 import { Toaster } from "react-hot-toast";
 import ManageInventories from "./Page/ManageInventories/ManageInventories/ManageInventories";
+import AddNewItem from "./Page/ManageInventories/AddNewItem/AddNewItem";
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
           element={
             <RequireAuth>
               <ManageInventories />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/addNewItem"
+          element={
+            <RequireAuth>
+              <AddNewItem />
             </RequireAuth>
           }
         />

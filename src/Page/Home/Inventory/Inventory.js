@@ -76,12 +76,12 @@ const Inventory = () => {
 
   return (
     <div className="pt-6">
-      <div className=" mx-auto sm:px-6 lg:max-w-7xl lg:px-6 md:px-6 sm:rounded-lg lg:aspect-w-3 ">
+      <div className="  mx-auto sm:px-6 lg:max-w-7xl lg:px-6 md:px-6 sm:rounded-lg lg:aspect-w-3 ">
         <img
-          src="https://i.ibb.co/k36NYpS/AMD-Ryzen-7-3700-X-Processor-xl.jpg"
-          // src={item.img}
+          // src="https://i.ibb.co/k36NYpS/AMD-Ryzen-7-3700-X-Processor-xl.jpg"
+          src={item.img}
           alt={item.name}
-          className=" object-center object-cover"
+          className=" object-center object-cover lg:w-2/6 lg:ml-36"
         />
         {/* </div> */}
       </div>
@@ -96,10 +96,10 @@ const Inventory = () => {
         {/* Details */}
         <div className="mt-4 lg:mt-0 lg:row-span-3">
           {/* <h2 className="sr-only">Product information</h2> */}
-          <p className="text-2xl text-gray-900">Price: {item.price} BDT</p>
-          <p className="text-2xl text-gray-900">Quantity: {itemQty}</p>
-          <p className="text-2xl text-gray-900">Sold: {item.sold}</p>
-          <p className="text-2xl text-gray-900">Supplier {item.supplier}</p>
+          <p className="text-xl text-gray-900">Price: ${item.price}</p>
+          <p className="text-xl text-gray-900">Quantity: {itemQty}</p>
+          <p className="text-xl text-gray-900">Sold: {item.sold}</p>
+          <p className="text-xl text-gray-900">Supplier {item.supplier}</p>
           {deliveredError && (
             <p className="text-red-600 mt-4 text-center">{deliveredError}</p>
           )}
@@ -114,7 +114,7 @@ const Inventory = () => {
             onSubmit={handleStock}
             className="mt-4 border-t-2 border-gray-200"
           >
-            <h1 className="text-2xl mt-3 ">Restock {item.name}.</h1>
+            <h1 className="text-2xl mt-3 ">Restock this item.</h1>
             <div className=" relative ">
               <input
                 type="number"

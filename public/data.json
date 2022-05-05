@@ -3,7 +3,7 @@
     "name": "AMD Ryzen 7 3700X Processor",
     "img": "https://i.ibb.co/G70hc80/AMD-Ryzen-7-3700-X-Processor-sm.jpg",
     "desc": "Speed: 3.6GHz up to 4.4GHz \nCache: L2: 4MB \n L3: 32MB Cores-8 & Threads-16 \n Memory Speed: 3200MHz",
-    "price": 2800,
+    "price": 325,
     "quantity": 13,
     "supplier": "AMD",
     "sold": 8
@@ -12,7 +12,7 @@
     "name": "MSI A320M-A Pro AMD Micro-ATX Motherboard",
     "img": "https://i.ibb.co/sVVY4G0/MSI-A320-M-A-Pro-AMD-Micro-ATX-Motherboard-sm.jpg",
     "desc": "Supports 1st, 2nd and 3rd Gen AMD Ryzen/ with Radeon Vega Graphics \n Supports up to 3200 (OC) MHz DDR4 RAM \n Core Boost: support more cores \n DDR4 Boost, Audio Boost",
-    "price": 6000,
+    "price": 70,
     "quantity": 10,
     "supplier": "MSI",
     "sold": 3
@@ -21,7 +21,7 @@
     "name": "Xiaomi Redmi 1A 23.8 Monitor",
     "img": "https://i.ibb.co/gP4S5r4/Xiaomi-Redmi-1-A-23-8-Monitor-sm.jpg",
     "desc": "23.8-Inch FHD (1920 x 1080) IPS Display \n Refresh Rate: 60HZ, Response Time: 6ms \n Interface Type: HDMI, VGA \n Contrast Ratio: 1000:1, Color: 16.7M",
-    "price": 1300,
+    "price": 150,
     "quantity": 23,
     "supplier": "Xiaomi",
     "sold": 10
@@ -30,7 +30,7 @@
     "name": "Samsung 870 EVO 500GB 2.5 Inch SATA III Internal SSD",
     "img": "https://i.ibb.co/S5VRYf5/Samsung-870-EVO-500-GB-2-5-Inch-SATA-III-Internal-SSD-sm.jpg",
     "desc": "Speed: Up to 560MB/s read & 530MB/s write \n      1.5 Million Hours Reliability (MTBF) , Form Factor: 2.5 inch \n      Interface: SATA 6 Gb/s",
-    "price": 6000,
+    "price": 70,
     "quantity": 30,
     "supplier": "Samsung",
     "sold": 15
@@ -39,7 +39,7 @@
     "name": "ZOTAC Gaming GeForce RTX 2060 6GB GDDR6 Graphics Card",
     "img": "https://i.ibb.co/p1F59bR/ZOTAC-Gaming-Ge-Force-RTX-2060-6-GB-GDDR6-Graphics-Card-sm.jpg",
     "desc": "Video Memory: 6GB ,      PCI Express 3.0 ,      Engine Clock:1680 MHz ,      Resolution: 4096x2160@60Hz",
-    "price": 48000,
+    "price": 550,
     "quantity": 35,
     "supplier": "Zotac",
     "sold": 20

@@ -1,5 +1,6 @@
 import React from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 import useGetAllItems from "../../../hooks/useGetAllItems";
 import ManageInventoriesTableRow from "../ManageInventoriesTableBody/ManageInventoriesTableBody";
 
@@ -27,12 +28,13 @@ const ManageInventories = () => {
   return (
     <div>
       <div className="flex justify-end mt-14 mb-5 mr-9 ">
-        <button
+        <Link
+          to="/addNewItem"
           type="button"
           className="py-2 px-4   bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
         >
           Add New Item
-        </button>
+        </Link>
       </div>
 
       <div className="flex flex-col">
