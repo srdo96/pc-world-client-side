@@ -1,13 +1,11 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useItemsDetails from "../../../hooks/useItemsDetails";
 
 const Inventory = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [itemQty, setItemQty] = useState(0);
-  const [updateItemQty, setUpdateItemQty] = useState({ quantity: 11 });
+  const [error, setError] = useState("");
   const url = `http://localhost:5000/item/${id}`;
 
   useEffect(() => {
@@ -18,37 +16,27 @@ const Inventory = () => {
         setItemQty(data.quantity);
       });
   }, []);
-  // console.log("log item", itemQty);
+
   const handleDelivered = () => {
-    // console.log("item.qunti:", itemQty);
     if (itemQty > 0) {
-      // setItemQty(item.quantity - 1);
       const newQty = itemQty - 1;
-      setItemQty(newQty);
-      // const newQty = itemQty - 1;
-      // setItemQty(newQty);
-      const updateInfo = { quantity: newQty };
-      // console.log(typeof qty, qty);
-      console.log("Update-info", updateInfo, "&", updateInfo.quantity);
-      setUpdateItemQty(updateInfo);
-      console.log("Update-Qty", updateItemQty, "&", updateItemQty.quantity);
-      console.log("updateQ", updateItemQty);
-      // const url = `http://localhost:5000/data/${id}`;
-      // console.log(updateItemQty);
       fetch(url, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updateItemQty),
+        body: JSON.stringify({ quantity: newQty }),
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Success:", data);
+          setItemQty(newQty);
+          setError("");
         })
         .catch((error) => {
           console.error("Error:", error);
         });
+    } else {
+      setError("Stock Empty!!");
     }
   };
 
@@ -78,7 +66,7 @@ const Inventory = () => {
           <p className="text-2xl text-gray-900">Quantity: {itemQty}</p>
           <p className="text-2xl text-gray-900">Sold: {item.sold}</p>
           <p className="text-2xl text-gray-900">Supplier {item.supplier}</p>
-
+          {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
           <button
             onClick={handleDelivered}
             className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
