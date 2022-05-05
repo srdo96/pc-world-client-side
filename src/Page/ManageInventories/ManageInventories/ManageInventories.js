@@ -1,10 +1,25 @@
 import React from "react";
+import toast from "react-hot-toast";
 import useGetAllItems from "../../../hooks/useGetAllItems";
 import ManageInventoriesTableRow from "../ManageInventoriesTableBody/ManageInventoriesTableBody";
 
 const ManageInventories = () => {
-  const [data] = useGetAllItems([]);
-  console.log("data", data);
+  const [data, setData] = useGetAllItems([]);
+
+  const handleDeleteItem = (id) => {
+    const url = `http://localhost:5000/item/${id}`;
+
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((resData) => {
+        // console.log(item._id);
+        const newData = data.filter((item) => item._id !== id);
+        setData(newData);
+        toast.success("Remove item successful");
+      });
+  };
   return (
     <div>
       <div className="flex justify-end mt-14 mb-5 mr-5 ">
@@ -73,6 +88,7 @@ const ManageInventories = () => {
                       key={item._id}
                       item={item}
                       index={index}
+                      handleDeleteItem={handleDeleteItem}
                     ></ManageInventoriesTableRow>
                   ))}
                 </tbody>

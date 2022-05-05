@@ -13,7 +13,7 @@ const useGetAllItems = () => {
     fetchItems();
   }, []);
 
-  return [data];
+  return [data, setData];
 };
 
 export default useGetAllItems;
