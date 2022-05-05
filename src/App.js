@@ -12,6 +12,7 @@ import Inventory from "./Page/Home/Inventory/Inventory";
 import RequireAuth from "./Page/Auth/RequireAuth/RequireAuth";
 import Blogs from "./Page/Blogs/Blogs";
 import { Toaster } from "react-hot-toast";
+import ManageInventories from "./Page/ManageInventories/ManageInventories";
 
 function App() {
   return (
@@ -31,6 +32,14 @@ function App() {
           element={
             <RequireAuth>
               <Inventory />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/manageInventories"
+          element={
+            <RequireAuth>
+              <ManageInventories />
             </RequireAuth>
           }
         />

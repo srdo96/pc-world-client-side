@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Inventory = () => {
   const { id } = useParams();
@@ -131,7 +131,7 @@ const Inventory = () => {
               type="submit"
               className="uppercase mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Stock
+              Re-Stock
             </button>
           </form>
         </div>
@@ -157,6 +157,12 @@ const Inventory = () => {
               </ul>
             </div>
           </div>
+          <Link
+            to="/manageInventories"
+            className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Manage Inventories
+          </Link>
         </div>
       </div>
     </div>
