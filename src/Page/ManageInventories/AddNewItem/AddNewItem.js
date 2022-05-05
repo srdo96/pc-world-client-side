@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const AddNewItem = () => {
   const handleAddItem = (e) => {
@@ -10,6 +11,27 @@ const AddNewItem = () => {
     const sold = e.target.sold.value;
     const supplier = e.target.supplier.value;
     const imgUrl = e.target.imgUrl.value;
+    const newItem = {
+      name: name,
+      img: imgUrl,
+      desc: desc,
+      price: price,
+      quantity: qty,
+      supplier: supplier,
+      sold: sold,
+    };
+    console.log(newItem);
+
+    fetch("http://localhost:5000/addnewitem", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newItem),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        toast.success("New item added.");
+        console.log("Success:", data);
+      });
   };
   return (
     <form onSubmit={handleAddItem}>
@@ -25,14 +47,16 @@ const AddNewItem = () => {
               </span>
             </div>
           </div>
+
           <div className="mt-6">
             <div className="w-full space-y-6">
               <div className="w-full">
                 <div className=" relative ">
+                  <label htmlFor="">Name</label>
                   <input
                     type="text"
                     id="name"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Item Name"
                     required
                   />
@@ -40,10 +64,11 @@ const AddNewItem = () => {
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  <label htmlFor="">Description</label>
                   <textarea
                     type="textarea"
                     id="desc"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Description"
                     required
                   />
@@ -51,21 +76,24 @@ const AddNewItem = () => {
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  <label htmlFor="">Price</label>
                   <input
-                    type="text"
+                    type="number"
                     id="price"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Price"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    placeholder="Price $$"
                     required
                   />
                 </div>
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  {" "}
+                  <label htmlFor="">Quantity</label>
                   <input
-                    type="text"
+                    type="number"
                     id="qty"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Quantity"
                     required
                   />
@@ -73,21 +101,25 @@ const AddNewItem = () => {
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  {" "}
+                  <label htmlFor="">Sold</label>
                   <input
-                    type="text"
+                    type="number"
                     id="sold"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Sold"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    placeholder="Sold $$"
                     required
                   />
                 </div>
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  {" "}
+                  <label htmlFor="">Supplier name</label>
                   <input
                     type="text"
                     id="supplier"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Supplier name"
                     required
                   />
@@ -95,10 +127,12 @@ const AddNewItem = () => {
               </div>
               <div className="w-full">
                 <div className=" relative ">
+                  {" "}
+                  <label htmlFor="">Img url</label>
                   <input
-                    type="text"
+                    type="url"
                     id="imgUrl"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Item image url"
                     required
                   />
@@ -108,7 +142,7 @@ const AddNewItem = () => {
                 <span className="block w-full rounded-md shadow-sm">
                   <button
                     type="submit"
-                    className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                    className=" bg-green-500  border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4  text-white placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   >
                     Add item
                   </button>
