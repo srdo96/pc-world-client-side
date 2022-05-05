@@ -5,7 +5,8 @@ const Inventory = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [itemQty, setItemQty] = useState(0);
-  const [error, setError] = useState("");
+  const [deliveredError, setDeliveredError] = useState("");
+  const [stockError, setStockError] = useState("");
   const url = `http://localhost:5000/item/${id}`;
 
   useEffect(() => {
@@ -30,35 +31,44 @@ const Inventory = () => {
         .then((response) => response.json())
         .then((data) => {
           setItemQty(newQty);
-          setError("");
+          setDeliveredError("");
+          setStockError("");
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     } else {
-      setError("Stock Empty!!");
+      setDeliveredError("Stock Empty!!");
+      setStockError("");
     }
   };
   const handleStock = (e) => {
     e.preventDefault();
     const stockNum = e.target.stockQty.value;
-    const newStockNum = itemQty + parseInt(stockNum);
     e.target.reset();
 
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ quantity: newStockNum }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setItemQty(newStockNum);
+    if (stockNum > 0) {
+      const newStockNum = itemQty + parseInt(stockNum);
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ quantity: newStockNum }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          setItemQty(newStockNum);
+          setStockError("");
+          setDeliveredError("");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else {
+      setStockError("Number of stock can't be Negative or Zero");
+      setDeliveredError("");
+    }
   };
 
   return (
@@ -87,7 +97,9 @@ const Inventory = () => {
           <p className="text-2xl text-gray-900">Quantity: {itemQty}</p>
           <p className="text-2xl text-gray-900">Sold: {item.sold}</p>
           <p className="text-2xl text-gray-900">Supplier {item.supplier}</p>
-          {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
+          {deliveredError && (
+            <p className="text-red-600 mt-4 text-center">{deliveredError}</p>
+          )}
           <button
             onClick={handleDelivered}
             className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -109,6 +121,9 @@ const Inventory = () => {
                 placeholder="Quantity"
               />
             </div>
+            {stockError && (
+              <p className="text-red-600 text-center mt-4">{stockError}</p>
+            )}
             <button
               type="submit"
               className="uppercase mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
