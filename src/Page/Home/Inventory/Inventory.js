@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 
 const Inventory = () => {
@@ -33,6 +34,7 @@ const Inventory = () => {
           setItemQty(newQty);
           setDeliveredError("");
           setStockError("");
+          toast.success("Delivered Successfully");
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -61,6 +63,7 @@ const Inventory = () => {
           setItemQty(newStockNum);
           setStockError("");
           setDeliveredError("");
+          toast.success("Stock Successful");
         })
         .catch((error) => {
           console.error("Error:", error);

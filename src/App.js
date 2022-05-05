@@ -11,11 +11,13 @@ import Items from "./Page/Home/Items/Items";
 import Inventory from "./Page/Home/Inventory/Inventory";
 import RequireAuth from "./Page/Auth/RequireAuth/RequireAuth";
 import Blogs from "./Page/Blogs/Blogs";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
