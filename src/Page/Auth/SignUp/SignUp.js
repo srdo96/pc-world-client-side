@@ -16,9 +16,9 @@ const SignUp = () => {
     useSignInWithGoogle(auth);
 
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-  const handleSignupWithEmail = (e) => {
+  const handleSignupWithEmail = async (e) => {
     e.preventDefault();
     const firstName = e.target.firstName.value;
     const lastName = e.target.lastName.value;
@@ -26,7 +26,7 @@ const SignUp = () => {
     const pass = e.target.pass.value;
     const confirmPass = e.target.confirmPass.value;
     if (pass === confirmPass) {
-      createUserWithEmailAndPassword(email, pass);
+      await createUserWithEmailAndPassword(email, pass);
       setPassError("");
       e.target.reset();
     } else {
