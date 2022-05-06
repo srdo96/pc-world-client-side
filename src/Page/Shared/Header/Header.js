@@ -70,7 +70,7 @@ const Header = () => {
                       smooth
                       className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                     >
-                      My Item
+                      My Items
                     </HashLink>
                   </li>
                 </li>
@@ -199,6 +199,40 @@ const Header = () => {
                             Items
                           </HashLink>
                         </li>
+                        {user && (
+                          <li className="space-y-4">
+                            <li>
+                              <HashLink
+                                to="/manageInventories"
+                                smooth
+                                onClick={() => setIsMenuOpen(false)}
+                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                Manage Items
+                              </HashLink>
+                            </li>
+                            <li>
+                              <HashLink
+                                to="/addNewItem"
+                                smooth
+                                onClick={() => setIsMenuOpen(false)}
+                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                Add Item
+                              </HashLink>
+                            </li>
+                            <li>
+                              <HashLink
+                                to="/myitems"
+                                smooth
+                                onClick={() => setIsMenuOpen(false)}
+                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                My Items
+                              </HashLink>
+                            </li>
+                          </li>
+                        )}
                         <li>
                           <a
                             href="/"
