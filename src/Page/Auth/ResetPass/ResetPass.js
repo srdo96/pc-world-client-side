@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import auth from "../../../firebase.init";
 
 const ResetPass = () => {
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    await sendPasswordResetEmail(email);
+    e.target.reset();
+  };
+  if (sending) {
+    toast.success("Password reset link send to your email");
+  }
   return (
     <div className="grid place-items-center mt-10">
       <div className="w-full max-w-md px-4 py-8  bg-white rounded-lg shadow sm:px-6 md:px-8 lg:px-10">
@@ -8,7 +23,7 @@ const ResetPass = () => {
           Account recovery
         </div>
         <div className="mt-8">
-          <form autoComplete="off">
+          <form autoComplete="off" onSubmit={handleResetPassword}>
             <div className="flex flex-col mb-2">
               <div className="flex relative ">
                 <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
@@ -24,13 +39,16 @@ const ResetPass = () => {
                 </span>
                 <input
                   type="text"
-                  id="sign-in-email"
+                  id="email"
                   className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="Your email"
                 />
               </div>
             </div>
             <div className="flex w-full">
+              {error && (
+                <p className="text-red-600 text-center">{error.message}</p>
+              )}
               <button
                 type="submit"
                 className="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
