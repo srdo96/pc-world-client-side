@@ -7,11 +7,11 @@ const Items = () => {
 
   return (
     <div id="items" className=" mt-10">
-      <h1 className="text-3xl text-center ">All Items {data.length} </h1>
       <div className="grid items-center  lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-10">
-        {data.map((item) => (
-          <Card key={item._id} item={item} />
-        ))}
+        {data.map(
+          (item) =>
+            data.indexOf(item) < 6 && <Card key={item._id} item={item} />
+        )}
       </div>
 
       <Link

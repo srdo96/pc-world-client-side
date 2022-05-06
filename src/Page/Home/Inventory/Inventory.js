@@ -78,12 +78,10 @@ const Inventory = () => {
     <div className="pt-6">
       <div className="  mx-auto sm:px-6 lg:max-w-7xl lg:px-6 md:px-6 sm:rounded-lg lg:aspect-w-3 ">
         <img
-          // src="https://i.ibb.co/k36NYpS/AMD-Ryzen-7-3700-X-Processor-xl.jpg"
           src={item.img}
           alt={item.name}
           className=" object-center object-cover lg:w-2/6 lg:ml-36"
         />
-        {/* </div> */}
       </div>
       {/* Product info */}
       <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
