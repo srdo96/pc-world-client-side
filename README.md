@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Pc World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live Link Will Add hear](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This website is for managing a warehouse. As a warehouse I choose a pc shop which name is "PC WORLD".
 
 ### `yarn start`
 

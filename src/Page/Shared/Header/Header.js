@@ -234,19 +234,22 @@ const Header = () => {
                           </li>
                         )}
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/blogs"
                             onClick={() => setIsMenuOpen(false)}
                             aria-label="Blogs"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Blogs
-                          </a>
+                          </Link>
                         </li>
 
                         {user ? (
                           <button
-                            onClick={() => signOut(auth)}
+                            onClick={() => {
+                              signOut(auth);
+                              setIsMenuOpen(false);
+                            }}
                             className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-red-500 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
                             aria-label="Sign in"
                           >
@@ -257,6 +260,7 @@ const Header = () => {
                             <li>
                               <Link
                                 to="/signup"
+                                onClick={() => setIsMenuOpen(false)}
                                 className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200"
                                 aria-label="Sign up"
                               >
@@ -266,6 +270,7 @@ const Header = () => {
                             <li>
                               <Link
                                 to="/signin"
+                                onClick={() => setIsMenuOpen(false)}
                                 className="inline-flex items-center justify-center w-full h-12 mt-3 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
                                 aria-label="Sign in"
                               >

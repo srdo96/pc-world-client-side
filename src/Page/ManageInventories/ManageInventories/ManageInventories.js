@@ -4,7 +4,6 @@ import TableHead from "../../Shared/ItemsTable/TableHead/TableHead";
 
 const ManageInventories = () => {
   const [items] = useGetAllItems([]);
-
   return <TableHead items={items} />;
 };
 

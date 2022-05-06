@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import {
   useSignInWithEmailAndPassword,
@@ -17,16 +18,21 @@ const SignIn = () => {
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
 
-  const handleEmailSignIn = (e) => {
+  const handleEmailSignIn = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const pass = e.target.pass.value;
-    signInWithEmailAndPassword(email, pass);
+    await signInWithEmailAndPassword(email, pass);
+    const { data } = await axios.post("http://localhost:5000/signin", {
+      email,
+    });
+    localStorage.setItem("token", data.token);
+    navigate(from, { replace: true });
   };
 
   let from = location.state?.from?.pathname || "/";
 
-  if (googleUser || emailUser) {
+  if (googleUser) {
     navigate(from, { replace: true });
   }
   return (
