@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 const AddNewItem = () => {
+  const [user] = useAuthState(auth);
   const handleAddItem = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -11,6 +13,7 @@ const AddNewItem = () => {
     const sold = e.target.sold.value;
     const supplier = e.target.supplier.value;
     const imgUrl = e.target.imgUrl.value;
+    e.target.reset();
     const newItem = {
       name: name,
       img: imgUrl,
@@ -19,8 +22,8 @@ const AddNewItem = () => {
       quantity: qty,
       supplier: supplier,
       sold: sold,
+      email: user.email,
     };
-    console.log(newItem);
 
     fetch("http://localhost:5000/addnewitem", {
       method: "POST",
@@ -107,7 +110,7 @@ const AddNewItem = () => {
                     type="number"
                     id="sold"
                     className=" border-solid  rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                    placeholder="Sold $$"
+                    placeholder="Sold"
                     required
                   />
                 </div>

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+import React from "react";
 
-const ManageInventoriesTableRow = ({ item, index, handleDeleteItem }) => {
-  // const [removedId, setRemovedId] = useState("");
-
+const TableBody = ({ item, index, handleDeleteItem }) => {
   return (
     <tr className="bg-gray-100 border-b">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -46,4 +43,4 @@ const ManageInventoriesTableRow = ({ item, index, handleDeleteItem }) => {
   );
 };
 
-export default ManageInventoriesTableRow;
+export default TableBody;

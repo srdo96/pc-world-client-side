@@ -44,6 +44,37 @@ const Header = () => {
                   Items
                 </HashLink>
               </li>
+              {user && (
+                <li className="flex space-x-8 ">
+                  <li>
+                    <HashLink
+                      to="/manageInventories"
+                      smooth
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                    >
+                      Manage Items
+                    </HashLink>
+                  </li>
+                  <li>
+                    <HashLink
+                      to="/addNewItem"
+                      smooth
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                    >
+                      Add Item
+                    </HashLink>
+                  </li>
+                  <li>
+                    <HashLink
+                      to="/myitems"
+                      smooth
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                    >
+                      My Item
+                    </HashLink>
+                  </li>
+                </li>
+              )}
               <li>
                 <Link
                   to="/blogs"
