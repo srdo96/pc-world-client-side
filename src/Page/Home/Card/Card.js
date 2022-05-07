@@ -20,7 +20,7 @@ const Card = ({ item }) => {
             <li className="text-xl">Qty: {quantity}</li>
             <li className="text-xl">Sold: {sold}</li>
             <li className="text-xl">Supplier: {supplier}</li>
-            <li className="text-xl">Price: {price} BDT</li>
+            <li className="text-xl">Price: $ {price}</li>
           </ul>
           <Link
             to={`/inventory/${_id}`}

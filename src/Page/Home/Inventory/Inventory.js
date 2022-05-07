@@ -95,7 +95,13 @@ const Inventory = () => {
         <div className="mt-4 lg:mt-0 lg:row-span-3">
           {/* <h2 className="sr-only">Product information</h2> */}
           <p className="text-xl text-gray-900">Price: ${item.price}</p>
-          <p className="text-xl text-gray-900">Quantity: {itemQty}</p>
+          {itemQty ? (
+            <p className="text-xl text-gray-900">Quantity: {itemQty}</p>
+          ) : (
+            <p className="text-xl text-gray-900">
+              Quantity: <span className="text-red-400">Sold Out</span>
+            </p>
+          )}
           <p className="text-xl text-gray-900">Sold: {item.sold}</p>
           <p className="text-xl text-gray-900">Supplier {item.supplier}</p>
           {deliveredError && (
@@ -108,6 +114,7 @@ const Inventory = () => {
             Delivered
           </button>
 
+          {/* Restock form */}
           <form
             onSubmit={handleStock}
             className="mt-4 border-t-2 border-gray-200"

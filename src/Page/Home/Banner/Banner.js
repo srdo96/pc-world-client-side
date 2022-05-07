@@ -6,11 +6,11 @@ const Banner = () => {
       <img className="rounded shadow-xl" src={banner} alt="" />
 
       <div
-        className={`absolute bottom-10 py-5 text-xl  rounded-b-md  w-full text-white font-normal`}
+        className={`absolute bottom-0 md:py-5  rounded-b-md  w-full text-white font-normal`}
       >
-        <div className="text-center">
-          <h1 className="text-7xl ">
-            PC For Home and Office <br /> PC WORLD
+        <div className="text-center bg-black bg-opacity-60 sm:py-5 py-10">
+          <h1 className="sm:text-xl md:text-5xl font-medium ">
+            Buy Your Next PC From PC WORLD
           </h1>
         </div>
       </div>

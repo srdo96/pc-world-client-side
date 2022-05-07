@@ -44,6 +44,15 @@ const Header = () => {
                   Items
                 </HashLink>
               </li>
+              <li>
+                <HashLink
+                  to="/#dashboard"
+                  smooth
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Dashboard
+                </HashLink>
+              </li>
               {user && (
                 <li className="flex space-x-8 ">
                   <li>
@@ -197,6 +206,16 @@ const Header = () => {
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Items
+                          </HashLink>
+                        </li>
+                        <li>
+                          <HashLink
+                            to="/#dashboard"
+                            smooth
+                            onClick={() => setIsMenuOpen(false)}
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Dashboard
                           </HashLink>
                         </li>
                         {user && (
