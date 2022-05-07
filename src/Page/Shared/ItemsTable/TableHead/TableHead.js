@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import TableBody from "../TableBody/TableBody";
 
 const TableHead = ({ items }) => {
+  const pathName = window.location.pathname;
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(items);
@@ -58,6 +59,14 @@ const TableHead = ({ items }) => {
                     >
                       Item Name
                     </th>
+                    {pathName === "/manageInventories" && (
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Email
+                      </th>
+                    )}
                     <th
                       scope="col"
                       className="text-sm font-medium text-gray-900 px-6 py-4 text-left"

@@ -5,7 +5,7 @@ const Blogs = () => {
     <div>
       <div className="bg-lightblue py-20 px-4">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row">
-          <h2 className="mr-8 w-full md:w-1/3 text-3xl font-extrabold leading-9">
+          <h2 className="mb-5 mr-8 w-full md:w-1/3  text-3xl font-extrabold leading-9">
             My Awesome Blogs
           </h2>
           <dl className="w-full md:w-2/3">

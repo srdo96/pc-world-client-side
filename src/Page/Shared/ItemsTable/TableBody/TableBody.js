@@ -1,6 +1,7 @@
 import React from "react";
 
 const TableBody = ({ item, index, handleDeleteItem }) => {
+  const pathName = window.location.pathname;
   return (
     <tr className="bg-gray-100 border-b">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -9,6 +10,11 @@ const TableBody = ({ item, index, handleDeleteItem }) => {
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         {item?.name}
       </td>
+      {pathName === "/manageInventories" && (
+        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          {item?.email}
+        </td>
+      )}
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         $ {item?.price}
       </td>
