@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Card from "../CountCard/CountCard";
-import TopSellCard from "../TopSellCard/TopSellCard";
+import CountCard from "../CountCard/CountCard";
+import TopItemsCard from "../TopItemsCard/TopItemsCard";
 
 const DashboardLayout = () => {
   const [count, setCount] = useState(0);
-  const [topSOld, setTopSold] = useState([]);
+  const [topItems, setTopItems] = useState([]);
 
-  //   fetch total item number
   useEffect(() => {
-    fetch("http://localhost:5000/count")
+    fetch("http://localhost:5000/sortQty")
       .then((res) => res.json())
       .then((data) => {
         setCount(data.count);
-      });
-  }, []);
-
-  //   fetch Top Sold items
-  useEffect(() => {
-    fetch("http://localhost:5000/sortSold")
-      .then((res) => res.json())
-      .then((data) => {
-        setTopSold(data);
+        setTopItems(data.topItems);
       });
   }, []);
   return (
@@ -29,12 +20,12 @@ const DashboardLayout = () => {
         Dashboard
       </h1>
       <div className="max-w-7xl  mx-auto py-6 sm:px-6 lg:px-8 border-4 border-dashed rounded-2xl">
-        <Card count={count} />
+        <CountCard count={count} />
         <div>
-          <h1 className="text-2xl my-5 mt-10">Top 3 selling items</h1>
+          <h1 className="text-2xl my-5 mt-10">Top Items</h1>
           <div className="grid  md:grid-cols-3 lg:grid-cols-3 ">
-            {topSOld.map((item) => (
-              <TopSellCard key={item._id} item={item}></TopSellCard>
+            {topItems.map((item) => (
+              <TopItemsCard key={item._id} item={item}></TopItemsCard>
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
-const TopSellCard = ({ item }) => {
-  const { img, name, sold } = item;
+const TopItemsCard = ({ item }) => {
+  const { img, name, quantity } = item;
   return (
     <div className="my-3  grid grid-cols-5 md:block lg:block  rounded-lg shadow-lg bg-white max-w-sm mx-3 ">
       <div className="col-span-1 lg:flex lg:justify-center ">
@@ -16,11 +16,12 @@ const TopSellCard = ({ item }) => {
           {name}
         </h5>
         <p className="col-span-2 lg:text-5xl text-2xl lg:font-bold md:text-center lg:text-center ml-2">
-          {sold} <span className="text-lg  text-gray-500 font-medium">pcs</span>
+          {quantity}{" "}
+          <span className="text-lg  text-gray-500 font-medium">pcs</span>
         </p>
       </div>
     </div>
   );
 };
 
-export default TopSellCard;
+export default TopItemsCard;
