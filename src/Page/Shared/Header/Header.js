@@ -6,7 +6,7 @@ import { HashLink } from "react-router-hash-link";
 import auth from "../../../firebase.init";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -24,13 +24,13 @@ const Header = () => {
                 Pc World
               </span>
             </Link>
-            <ul className="flex items-center hidden space-x-8 lg:flex">
+            <ul className="flex items-center hidden space-x-8 lg:flex ">
               <li>
                 <HashLink
                   to="/#home"
                   smooth
                   aria-label="Home"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-teal-400"
                 >
                   Home
                 </HashLink>
@@ -39,7 +39,7 @@ const Header = () => {
                 <HashLink
                   to="/#items"
                   smooth
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-teal-400"
                 >
                   Items
                 </HashLink>
@@ -48,18 +48,27 @@ const Header = () => {
                 <HashLink
                   to="/#dashboard"
                   smooth
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                 >
                   Dashboard
                 </HashLink>
               </li>
+              <li>
+                <HashLink
+                  to="/#analytics"
+                  smooth
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                >
+                  Analytics
+                </HashLink>
+              </li>
               {user && (
-                <li className="flex space-x-8 ">
+                <ul className="flex space-x-8 ">
                   <li>
                     <HashLink
                       to="/manageInventories"
                       smooth
-                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                     >
                       Manage Items
                     </HashLink>
@@ -68,7 +77,7 @@ const Header = () => {
                     <HashLink
                       to="/addNewItem"
                       smooth
-                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                     >
                       Add Item
                     </HashLink>
@@ -77,19 +86,19 @@ const Header = () => {
                     <HashLink
                       to="/myitems"
                       smooth
-                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                      className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                     >
                       My Items
                     </HashLink>
                   </li>
-                </li>
+                </ul>
               )}
               <li>
                 <Link
                   to="/blogs"
                   aria-label="Blogs"
                   title="Blogs"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                 >
                   Blogs
                 </Link>
@@ -99,33 +108,33 @@ const Header = () => {
             <ul className="flex items-center hidden space-x-8 lg:flex">
               {user ? (
                 <li onClick={() => signOut(auth)}>
-                  <button className="text-white font-medium tracking-wide ">
+                  <button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                     Sign out
                   </button>
                 </li>
               ) : (
-                <li className="flex ">
+                <ul className="flex ">
                   <li className="mr-4">
                     <Link
-                      to="/signup"
-                      className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      aria-label="Sign up"
-                      title="Sign up"
+                      to="/signin"
+                      aria-label="Sign in"
+                      title="Sign in"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                     >
                       Sign up
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/signin"
-                      className="inline-flex items-center justify-center h-12  font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      aria-label="Sign in"
-                      title="Sign in"
+                      to="/signup"
+                      className="focus:outline-none text-white   focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mb-2   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 hover:bg-teal-600"
+                      aria-label="Sign up"
+                      title="Sign up"
                     >
                       Sign in
                     </Link>
                   </li>
-                </li>
+                </ul>
               )}
             </ul>
 
@@ -187,13 +196,13 @@ const Header = () => {
                       </div>
                     </div>
                     <nav>
-                      <ul className="space-y-4">
+                      <ul className="space-y-4 text-center">
                         <li>
                           <HashLink
                             to="/#home"
                             smooth
                             onClick={() => setIsMenuOpen(false)}
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200  "
                           >
                             Home
                           </HashLink>
@@ -203,7 +212,7 @@ const Header = () => {
                             to="/#items"
                             smooth
                             onClick={() => setIsMenuOpen(false)}
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 "
                           >
                             Items
                           </HashLink>
@@ -218,8 +227,18 @@ const Header = () => {
                             Dashboard
                           </HashLink>
                         </li>
+                        <li>
+                          <HashLink
+                            to="/#analytics"
+                            smooth
+                            onClick={() => setIsMenuOpen(false)}
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Analytics
+                          </HashLink>
+                        </li>
                         {user && (
-                          <li className="space-y-4">
+                          <ul className="space-y-4">
                             <li>
                               <HashLink
                                 to="/manageInventories"
@@ -250,7 +269,7 @@ const Header = () => {
                                 My Items
                               </HashLink>
                             </li>
-                          </li>
+                          </ul>
                         )}
                         <li>
                           <Link
@@ -269,18 +288,18 @@ const Header = () => {
                               signOut(auth);
                               setIsMenuOpen(false);
                             }}
-                            className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-red-500 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
+                            className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-red-500 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 "
                             aria-label="Sign in"
                           >
                             Sign out
                           </button>
                         ) : (
-                          <li>
+                          <ul>
                             <li>
                               <Link
                                 to="/signup"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500    focus:ring-offset-indigo-200"
+                                className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200"
                                 aria-label="Sign up"
                               >
                                 Sign up
@@ -290,13 +309,13 @@ const Header = () => {
                               <Link
                                 to="/signin"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="inline-flex items-center justify-center w-full h-12 mt-3 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 "
+                                className="inline-flex items-center justify-center w-full h-12 mt-3 px-6 tracking-wide text-white font-semibold transition duration-200 rounded shadow-md   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 hover:bg-teal-700 "
                                 aria-label="Sign in"
                               >
                                 Sign in
                               </Link>
                             </li>
-                          </li>
+                          </ul>
                         )}
                       </ul>
                     </nav>
