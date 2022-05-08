@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import ManageInventories from "./Page/ManageInventories/ManageInventories/ManageInventories";
 import AddNewItem from "./Page/ManageInventories/AddNewItem/AddNewItem";
 import MyItems from "./Page/MyItems/MyItems";
+import DashboardLayout from "./Page/Home/Dashboard/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home#items" element={<Items />} />
+        <Route path="/home/#dashboard" element={<DashboardLayout />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpass" element={<ResetPass />} />

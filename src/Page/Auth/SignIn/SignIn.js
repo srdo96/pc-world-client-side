@@ -15,9 +15,10 @@ const SignIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
-  const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
+  const [signInWithEmailAndPassword, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
 
+  // email Sign in
   const handleEmailSignIn = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;

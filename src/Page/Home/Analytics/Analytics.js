@@ -1,5 +1,4 @@
 import React from "react";
-import useGetAllItems from "../../../hooks/useGetAllItems";
 import Chart from "../Chart/Chart/Chart";
 
 const Analytics = () => {

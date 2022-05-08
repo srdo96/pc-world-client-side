@@ -93,7 +93,6 @@ const Inventory = () => {
 
         {/* Details */}
         <div className="mt-4 lg:mt-0 lg:row-span-3">
-          {/* <h2 className="sr-only">Product information</h2> */}
           <p className="text-xl text-gray-900">Price: ${item.price}</p>
           {itemQty ? (
             <p className="text-xl text-gray-900">Quantity: {itemQty}</p>
@@ -142,7 +141,7 @@ const Inventory = () => {
         </div>
 
         <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-          {/* Description and details */}
+          {/* Description */}
           <div>
             <h3 className="sr-only">Description</h3>
 
@@ -151,17 +150,6 @@ const Inventory = () => {
             </div>
           </div>
 
-          <div className="mt-10">
-            <h3 className="text-sm font-medium text-gray-900">Key Features</h3>
-
-            <div className="mt-4">
-              <ul role="list" className="pl-4 list-disc text-sm space-y-2">
-                {/* <li key={} className="text-gray-400">
-                      <span className="text-gray-600">{highlight}</span>
-                    </li> */}
-              </ul>
-            </div>
-          </div>
           <Link
             to="/manageInventories"
             className="mt-5 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex datas-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

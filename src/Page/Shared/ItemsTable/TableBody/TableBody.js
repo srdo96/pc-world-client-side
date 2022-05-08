@@ -1,10 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./TableBody.css";
 
 const TableBody = ({ item, index, handleDeleteItem }) => {
   const pathName = window.location.pathname;
+  const navigate = useNavigate();
+
+  // go to inventory item
+  const handleTR = () => {
+    const url = `/inventory/${item._id}`;
+    navigate(url, { replace: true });
+  };
+
   return (
-    <tr className="bg-gray-100 border-b">
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+    <tr
+      onClick={handleTR}
+      style={{ cursor: "pointer" }}
+      className="bg-white border-b hover:bg-gray-50"
+    >
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
         {index + 1}
       </td>
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -27,9 +41,10 @@ const TableBody = ({ item, index, handleDeleteItem }) => {
       <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
         {item?.supplier}
       </td>
-      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap ">
         <button onClick={() => handleDeleteItem(item._id)}>
           <svg
+            id="trashIcon"
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
             fill="none"

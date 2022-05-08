@@ -24,7 +24,7 @@ const Header = () => {
                 Pc World
               </span>
             </Link>
-            <ul className="flex items-center hidden space-x-8 lg:flex ">
+            <ul className="items-center hidden space-x-8 lg:flex ">
               <li>
                 <HashLink
                   to="/#home"
@@ -46,7 +46,7 @@ const Header = () => {
               </li>
               <li>
                 <HashLink
-                  to="/#dashboard"
+                  to="/home#dashboard"
                   smooth
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                 >
@@ -105,10 +105,10 @@ const Header = () => {
               </li>
             </ul>
 
-            <ul className="flex items-center hidden space-x-8 lg:flex">
+            <ul className="  lg:items-center   hidden space-x-8 lg:flex">
               {user ? (
                 <li onClick={() => signOut(auth)}>
-                  <button class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                  <button className=" focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                     Sign out
                   </button>
                 </li>
@@ -138,6 +138,7 @@ const Header = () => {
               )}
             </ul>
 
+            {/* Navbar for sm devices */}
             <div className="lg:hidden">
               <button
                 aria-label="Open Menu"

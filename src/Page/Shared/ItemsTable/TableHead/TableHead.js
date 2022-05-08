@@ -45,7 +45,7 @@ const TableHead = ({ items }) => {
           <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div className="overflow-hidden">
               <table className="min-w-full">
-                <thead className="bg-white border-b">
+                <thead className="bg-gray-100 text-white border-b">
                   <tr>
                     <th
                       scope="col"
