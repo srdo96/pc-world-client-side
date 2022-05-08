@@ -24,9 +24,12 @@ const SignIn = () => {
     const email = e.target.email.value;
     const pass = e.target.pass.value;
     await signInWithEmailAndPassword(email, pass);
-    const { data } = await axios.post("http://localhost:5000/signin", {
-      email,
-    });
+    const { data } = await axios.post(
+      "https://stormy-spire-71562.herokuapp.com/signin",
+      {
+        email,
+      }
+    );
     localStorage.setItem("token", data.token);
     navigate(from, { replace: true });
   };

@@ -8,7 +8,7 @@ const Inventory = () => {
   const [itemQty, setItemQty] = useState(0);
   const [deliveredError, setDeliveredError] = useState("");
   const [stockError, setStockError] = useState("");
-  const url = `http://localhost:5000/item/${id}`;
+  const url = `https://stormy-spire-71562.herokuapp.com/item/${id}`;
 
   useEffect(() => {
     fetch(url)

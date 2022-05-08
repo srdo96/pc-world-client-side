@@ -25,7 +25,7 @@ const AddNewItem = () => {
       email: user.email,
     };
 
-    fetch("http://localhost:5000/addnewitem", {
+    fetch("https://stormy-spire-71562.herokuapp.com/addnewitem", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem),

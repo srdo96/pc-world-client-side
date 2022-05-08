@@ -4,7 +4,7 @@ const useGetAllItems = () => {
   const [data, setData] = useState([]);
 
   const fetchItems = () => {
-    fetch("http://localhost:5000/items")
+    fetch("https://stormy-spire-71562.herokuapp.com/items")
       .then((res) => res.json())
       .then((data) => setData(data));
   };

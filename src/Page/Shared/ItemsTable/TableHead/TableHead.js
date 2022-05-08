@@ -11,7 +11,7 @@ const TableHead = ({ items }) => {
   }, [items]);
 
   const handleDeleteItem = (id) => {
-    const url = `http://localhost:5000/item/${id}`;
+    const url = `https://stormy-spire-71562.herokuapp.com/item/${id}`;
     const confirmation = window.confirm(
       "Are you sure, you want to delete this?"
     );

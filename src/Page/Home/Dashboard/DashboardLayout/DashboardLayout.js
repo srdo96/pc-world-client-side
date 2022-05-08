@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   const [topItems, setTopItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/sortQty")
+    fetch("https://stormy-spire-71562.herokuapp.com/sortQty")
       .then((res) => res.json())
       .then((data) => {
         setCount(data.count);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useItemsDetails = (id) => {
   const [item, setItem] = useState({});
-  const url = `http://localhost:5000/item/${id}`;
+  const url = `https://stormy-spire-71562.herokuapp.com/item/${id}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

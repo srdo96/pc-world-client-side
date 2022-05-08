@@ -13,15 +13,15 @@ const TableBody = ({ item, index, handleDeleteItem }) => {
   };
 
   return (
-    <tr
-      onClick={handleTR}
-      style={{ cursor: "pointer" }}
-      className="bg-white border-b hover:bg-gray-50"
-    >
+    <tr className="bg-white border-b hover:bg-gray-50">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
         {index + 1}
       </td>
-      <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+      <td
+        onClick={handleTR}
+        style={{ cursor: "pointer" }}
+        className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+      >
         {item?.name}
       </td>
       {pathName === "/manageInventories" && (
