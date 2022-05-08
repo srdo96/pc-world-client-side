@@ -7,7 +7,6 @@ import Home from "./Page/Home/Home/Home";
 import SignUp from "./Page/Auth/SignUp/SignUp";
 import SignIn from "./Page/Auth/SignIn/SignIn";
 import ResetPass from "./Page/Auth/ResetPass/ResetPass";
-import Items from "./Page/Home/Items/Items";
 import Inventory from "./Page/Home/Inventory/Inventory";
 import RequireAuth from "./Page/Auth/RequireAuth/RequireAuth";
 import Blogs from "./Page/Blogs/Blogs";
@@ -15,7 +14,6 @@ import { Toaster } from "react-hot-toast";
 import ManageInventories from "./Page/ManageInventories/ManageInventories/ManageInventories";
 import AddNewItem from "./Page/ManageInventories/AddNewItem/AddNewItem";
 import MyItems from "./Page/MyItems/MyItems";
-import DashboardLayout from "./Page/Home/Dashboard/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -25,8 +23,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/home#items" element={<Items />} />
-        <Route path="/home/#dashboard" element={<DashboardLayout />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpass" element={<ResetPass />} />
