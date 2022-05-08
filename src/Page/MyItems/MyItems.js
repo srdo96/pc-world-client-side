@@ -26,7 +26,7 @@ const MyItems = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (typeof data === "object") {
+        if (data.message === "Forbidden access") {
           window.onload = signOut(auth);
           navigate(from, { replace: true });
           toast.error(
