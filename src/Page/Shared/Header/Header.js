@@ -27,7 +27,7 @@ const Header = () => {
             <ul className="items-center hidden space-x-8 lg:flex ">
               <li>
                 <HashLink
-                  to="#home"
+                  to="/#home"
                   smooth
                   aria-label="Home"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-teal-400"
@@ -37,7 +37,7 @@ const Header = () => {
               </li>
               <li>
                 <HashLink
-                  to="#items"
+                  to="/#items"
                   smooth
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 hover:text-teal-400"
                 >
@@ -46,7 +46,7 @@ const Header = () => {
               </li>
               <li>
                 <HashLink
-                  to="#dashboard"
+                  to="/#dashboard"
                   smooth
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
                 >
