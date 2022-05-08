@@ -116,7 +116,7 @@ const Header = () => {
                 <ul className="flex ">
                   <li className="mr-4">
                     <Link
-                      to="/signin"
+                      to="/signup"
                       aria-label="Sign in"
                       title="Sign in"
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -126,7 +126,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/signup"
+                      to="/signin"
                       className="focus:outline-none text-white   focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mb-2   bg-teal-500 focus:ring-indigo-500    focus:ring-offset-indigo-200 hover:bg-teal-600"
                       aria-label="Sign up"
                       title="Sign up"
