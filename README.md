@@ -9,10 +9,9 @@ here user can do lot of cool things. Like user can control data. They can add th
 
 ## Features and Functionality
 
-- Has a Dashboard. where top 3 items shown.
-- Has a My item section. Where data is shown in tabular form. And only shown login user's data.
+- Built login system for authentication.
+- Implemented a simple dashboard where top 3 items will be shown.
+- Implement analytics route where products price, quantity, sold data wil be shown in chart.
+- For Delivered and Re-Stock products quantity will update instantly and notify it with toaster.
+- Implemented table to show only login user's data in My Items.
 - Require auth. To show and do CRUD operation must need to login in.
-- Analytics data. Analytics products price, quantity, sold data and show result in chart.
-- use MongoDB. Store all data and do CRUD operation in MongoDB NoSql database.
-- Social login. Alongside email/password login user can also login with google
-- JWT Token. To secure data implement JWT Token.
