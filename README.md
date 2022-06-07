@@ -11,7 +11,7 @@ here user can do lot of cool things. Like user can control data. They can add th
 
 - Built login system for authentication.
 - Implemented a simple dashboard where top 3 items will be shown.
-- Implement analytics route where products price, quantity, sold data wil be shown in chart.
 - For Delivered and Re-Stock products quantity will update instantly and notify it with toaster.
+- Implement analytics route where products price, quantity, sold data wil be shown in chart.
 - Implemented table to show only login user's data in My Items.
 - Require auth. To show and do CRUD operation must need to login in.
