@@ -13,9 +13,13 @@ import {
   YAxis,
 } from "recharts";
 import useGetAllItems from "../../../../hooks/useGetAllItems";
+import Loading from "../../../Shared/Loading/Loading";
 
 const Chart = () => {
-  const [items] = useGetAllItems([]);
+  const [items, loading] = useGetAllItems([]);
+  if (loading) {
+    return <Loading />;
+  }
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 

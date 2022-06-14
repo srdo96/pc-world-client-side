@@ -6,7 +6,7 @@ const TableBody = ({ item, index, handleDeleteItem }) => {
   const pathName = window.location.pathname;
   const navigate = useNavigate();
 
-  // go to inventory item
+  // Navigate to inventory item
   const handleTR = () => {
     const url = `/inventory/${item._id}`;
     navigate(url, { replace: true });

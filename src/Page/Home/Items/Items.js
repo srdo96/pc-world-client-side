@@ -2,9 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useGetAllItems from "../../../hooks/useGetAllItems";
 import Card from "../Card/Card";
-const Items = () => {
-  const [data] = useGetAllItems([]);
+import Loading from "../../Shared/Loading/Loading";
 
+const Items = () => {
+  const [data, loading] = useGetAllItems([]);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div>
       <div id="items" className=" mt-10">

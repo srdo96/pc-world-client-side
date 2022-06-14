@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Loading from "../../Loading/Loading";
 import TableBody from "../TableBody/TableBody";
 
-const TableHead = ({ items }) => {
+const TableHead = ({ items, loading }) => {
   const pathName = window.location.pathname;
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -99,16 +100,20 @@ const TableHead = ({ items }) => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  {data.map((item, index) => (
-                    <TableBody
-                      key={item._id}
-                      item={item}
-                      index={index}
-                      handleDeleteItem={handleDeleteItem}
-                    ></TableBody>
-                  ))}
-                </tbody>
+                {loading ? (
+                  <Loading />
+                ) : (
+                  <tbody>
+                    {data.map((item, index) => (
+                      <TableBody
+                        key={item._id}
+                        item={item}
+                        index={index}
+                        handleDeleteItem={handleDeleteItem}
+                      ></TableBody>
+                    ))}
+                  </tbody>
+                )}
               </table>
             </div>
           </div>

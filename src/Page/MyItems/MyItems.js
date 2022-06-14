@@ -12,9 +12,11 @@ const MyItems = () => {
 
   const [user] = useAuthState(auth);
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   const email = user.email;
 
   let from = location.state?.from?.pathname || "/signin";
+
   useEffect(() => {
     fetch("https://stormy-spire-71562.herokuapp.com/myitems", {
       method: "POST",
@@ -32,14 +34,17 @@ const MyItems = () => {
           toast.error(
             "Social JWT Auth not implement yet. Try with Email login instead."
           );
-        } else setItems(data);
+        } else {
+          setItems(data);
+          setLoading(false);
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, []);
 
-  return <TableHead items={items} />;
+  return <TableHead items={items} loading={loading} />;
 };
 
 export default MyItems;
