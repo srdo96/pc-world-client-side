@@ -9,7 +9,7 @@ const DashboardLayout = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://stormy-spire-71562.herokuapp.com/sortQty")
+    fetch("https://pc-world-server-side-production.up.railway.app/sortQty")
       .then((res) => res.json())
       .then((data) => {
         setCount(data.count);

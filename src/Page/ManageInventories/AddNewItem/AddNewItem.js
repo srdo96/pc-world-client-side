@@ -1,6 +1,6 @@
 import React from "react";
-import toast from "react-hot-toast";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import auth from "../../../firebase.init";
 const AddNewItem = () => {
   const [user] = useAuthState(auth);
@@ -25,7 +25,7 @@ const AddNewItem = () => {
       email: user.email,
     };
 
-    fetch("https://stormy-spire-71562.herokuapp.com/addnewitem", {
+    fetch("https://pc-world-server-side-production.up.railway.app/addnewitem", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem),

@@ -5,7 +5,7 @@ const useGetAllItems = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchItems = () => {
-    fetch("https://stormy-spire-71562.herokuapp.com/items")
+    fetch("https://pc-world-server-side-production.up.railway.app/items")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

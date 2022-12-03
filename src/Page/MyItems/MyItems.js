@@ -18,7 +18,7 @@ const MyItems = () => {
   let from = location.state?.from?.pathname || "/signin";
 
   useEffect(() => {
-    fetch("https://stormy-spire-71562.herokuapp.com/myitems", {
+    fetch("https://pc-world-server-side-production.up.railway.app/myitems", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

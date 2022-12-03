@@ -8,7 +8,7 @@ const Inventory = () => {
   const [itemQty, setItemQty] = useState(0);
   const [deliveredError, setDeliveredError] = useState("");
   const [stockError, setStockError] = useState("");
-  const url = `https://stormy-spire-71562.herokuapp.com/item/${id}`;
+  const url = `https://pc-world-server-side-production.up.railway.app/item/${id}`;
 
   useEffect(() => {
     fetch(url)

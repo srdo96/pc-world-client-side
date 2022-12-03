@@ -12,7 +12,7 @@ const TableHead = ({ items, loading }) => {
   }, [items]);
 
   const handleDeleteItem = (id) => {
-    const url = `https://stormy-spire-71562.herokuapp.com/item/${id}`;
+    const url = `https://pc-world-server-side-production.up.railway.app/item/${id}`;
     const confirmation = window.confirm(
       "Are you sure, you want to delete this?"
     );
